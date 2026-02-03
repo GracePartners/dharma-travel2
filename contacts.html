@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dharma - Connessione Sacra</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#6e2a92",
+              "background-light": "#f7f6f8",
+              "background-dark": "#1b131f",
+            },
+            fontFamily: {
+              "display": ["Noto Serif", "serif"],
+              "sans": ["Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#151217] dark:text-white transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col lg:flex-row overflow-hidden">
+<!-- Left Side: Immersive Image -->
+<div class="relative w-full lg:w-1/2 h-64 lg:h-auto min-h-[300px] lg:min-h-screen flex-shrink-0">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="Close up of hands in Anjali Mudra prayer position with soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxGc9dOCPHA2F08F2cDUu9OKYvrV8iCLVbAmDogaxE4hJMh9LkrSKtmuUIwBvlRSN0tla_nStpPuQf5CdjgviTXteagAQShP8fHsT_KBv8BvCs9-8sDFGNHsD9DegIXiW89iGnofOxrRiVQHkLZxJSyeR1C1SMSuUJRcgedGeFoxGnitvqy_mujp8uvk5Fwx13GefKkTzpapELX1iQqMv75cjrx-xHiqOHix98f05zNbP7vxKtVmWioAgTiPcwpZVhbU4P2pizFa4');">
+<div class="absolute inset-0 bg-black/10"></div> <!-- Subtle overlay for depth -->
+</div>
+<!-- Mobile Header Logo Overlay (Visible only on small screens) -->
+<div class="absolute top-0 left-0 p-6 lg:hidden w-full z-50">
+<nav class="flex items-center justify-between">
+<!-- Left: Logo Mark -->
+<div class="flex items-center gap-2 text-white drop-shadow-md">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<!-- Right: Menu Button -->
+<button class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+</div>
+</div>
+<!-- Right Side: Content & Form -->
+<div class="flex-1 flex flex-col h-full bg-white dark:bg-background-dark overflow-y-auto">
+<!-- Desktop Header -->
+<header id="main-nav" class="hidden lg:flex items-center justify-between px-10 py-6 w-full max-w-[720px] mx-auto transition-all duration-500 transform translate-y-0">
+<!-- Left: Logo Mark -->
+<div class="flex items-center gap-2">
+<a href="index.html">
+<span class="material-symbols-outlined text-primary text-2xl">spa</span>
+</a>
+</div>
+<!-- Center: Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-12">
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="index.html">dharma</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="details.html">journeys</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="magazine.html">journal</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="contacts.html">contacts</a>
+</nav>
+<!-- Right: Menu Button -->
+<button id="burger-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</header>
+
+<!-- Canvas Menu -->
+<div id="canvas-menu" class="fixed inset-0 z-[100] hidden">
+<!-- Overlay -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="menu-overlay"></div>
+<!-- Menu Panel -->
+<div class="absolute right-0 top-0 h-full w-80 bg-[#f7f6f8] dark:bg-[#1b131f] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out" id="menu-panel">
+<div class="h-full flex flex-col p-8">
+<!-- Header -->
+<div class="flex items-center justify-between mb-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">spa</span>
+<span class="font-bold text-xl tracking-wider">DHARMA</span>
+</div>
+<button id="close-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-6">
+<a href="index.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">home</span>
+<span class="text-base tracking-widest uppercase">Home</span>
+</div>
+</a>
+<a href="details.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">explore</span>
+<span class="text-base tracking-widest uppercase">Journeys</span>
+</div>
+</a>
+<a href="magazine.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">auto_stories</span>
+<span class="text-base tracking-widest uppercase">Journal</span>
+</div>
+</a>
+<a href="contacts.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-base tracking-widest uppercase">Contatti</span>
+</div>
+</a>
+</nav>
+<!-- Footer -->
+<div class="mt-auto pt-8 border-t border-gray-200 dark:border-gray-800">
+<p class="text-xs text-gray-500 italic">Inizia il tuo viaggio interiore</p>
+</div>
+</div>
+</div>
+</div>
+
+<main class="flex-1 flex flex-col justify-center px-6 py-12 lg:px-16 lg:py-10 max-w-[720px] mx-auto w-full">
+<!-- Quote Section -->
+<div class="mb-12">
+<span class="material-symbols-outlined text-primary/40 text-4xl mb-4 block">format_quote</span>
+<h2 class="text-2xl lg:text-3xl font-medium leading-tight italic text-gray-800 dark:text-gray-100">
+                        "Il viaggio di mille miglia inizia con un singolo passo."
+                    </h2>
+<p class="mt-3 text-sm text-gray-500 dark:text-gray-400 font-sans tracking-widest uppercase">— Lao Tzu</p>
+</div>
+<!-- Form Section -->
+<form class="space-y-8 w-full">
+<!-- Name Field -->
+<div class="group relative">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="name">Nome</label>
+<input class="block w-full border-0 border-b-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-primary focus:ring-0 sm:text-lg transition-colors duration-300" id="name" name="name" placeholder="Il tuo nome completo" type="text"/>
+</div>
+<!-- Intent Field -->
+<div class="group relative">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="intent">Intenzione</label>
+<div class="relative">
+<select class="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-primary focus:ring-0 sm:text-lg transition-colors duration-300 pr-8" id="intent" name="intent">
+<option disabled="" selected="" value="">Cosa cerchi?</option>
+<option value="retreat">Ritiro nel Silenzio</option>
+<option value="pilgrimage">Pellegrinaggio Sacro</option>
+<option value="wellness">Benessere Olistico</option>
+<option value="adventure">Avventura Consapevole</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Connection Field -->
+<div class="group relative">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="connection">Connessione</label>
+<input class="block w-full border-0 border-b-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-primary focus:ring-0 sm:text-lg transition-colors duration-300" id="connection" name="connection" placeholder="Come preferisci essere contattato? (Email o Telefono)" type="text"/>
+</div>
+<!-- Submit Button -->
+<div class="pt-6">
+<button class="group flex items-center justify-center gap-2 rounded-lg border border-primary bg-primary/5 px-8 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 w-full sm:w-auto dark:bg-transparent dark:text-purple-300 dark:border-purple-300 dark:hover:bg-purple-300 dark:hover:text-background-dark" type="button">
+<span>Inizia il Viaggio</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Footer Address -->
+<div class="mt-16 lg:mt-24 pt-8 border-t border-gray-100 dark:border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-sm">
+<div class="text-gray-400 dark:text-gray-500 font-sans leading-relaxed">
+<p>108 Via del Loto</p>
+<p>Kyoto, Giappone</p>
+</div>
+<div>
+<a class="text-primary dark:text-purple-400 font-medium hover:underline decoration-primary/30 underline-offset-4 transition-all" href="mailto:contact@dharmatravel.com">
+                            contatti@dharma.it
+                        </a>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+<!-- JavaScript for Menu -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerMenu = document.getElementById('burger-menu');
+    const burgerMenuMobile = document.getElementById('burger-menu-mobile');
+    const closeMenu = document.getElementById('close-menu');
+    const canvasMenu = document.getElementById('canvas-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuPanel = document.getElementById('menu-panel');
+    
+    function openMenu() {
+        canvasMenu.classList.remove('hidden');
+        setTimeout(function() {
+            menuPanel.classList.remove('translate-x-full');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenuFunc() {
+        menuPanel.classList.add('translate-x-full');
+        setTimeout(function() {
+            canvasMenu.classList.add('hidden');
+        }, 500);
+        document.body.style.overflow = '';
+    }
+    
+    if (burgerMenu) burgerMenu.addEventListener('click', openMenu);
+    if (burgerMenuMobile) burgerMenuMobile.addEventListener('click', openMenu);
+    if (closeMenu) closeMenu.addEventListener('click', closeMenuFunc);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenuFunc);
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !canvasMenu.classList.contains('hidden')) {
+            closeMenuFunc();
+        }
+    });
+});
+</script>
+
+<!-- JavaScript for Header Scroll Effect -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const nav = document.getElementById('main-nav');
+    const body = document.body;
+    let ticking = false;
+    let wasFixed = false;
+    
+    const navHeight = nav.offsetHeight;
+    
+    function updateNav() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 150) {
+            if (!wasFixed) {
+                body.style.paddingTop = navHeight + 'px';
+                nav.classList.remove('bg-transparent', 'py-6');
+                nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4', 'z-50');
+                wasFixed = true;
+            }
+        } else {
+            if (wasFixed) {
+                body.style.paddingTop = '0';
+                nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4', 'z-50');
+                nav.classList.add('bg-transparent', 'py-6');
+                wasFixed = false;
+            }
+        }
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateNav);
+            ticking = true;
+        }
+    });
+    
+    updateNav();
+});
+</script>
+</body></html>

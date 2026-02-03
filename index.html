@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dharma - Viaggio Interiore</title>
+<!-- Google Fonts: Noto Serif -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6e2a92",
+                        "background-light": "#f2f2ef", /* Stone grey */
+                        "background-dark": "#1c1c1e",
+                        "stone-text": "#44403c",
+                        "stone-border": "#d6d3d1",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom utilities for vertical text and smooth scrolling */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+        
+        body {
+            scroll-behavior: smooth;
+        }
+
+        /* Subtle fade in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#151217] dark:text-[#e0e0e0] antialiased selection:bg-primary/20">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<nav id="main-nav" class="w-full px-6 md:px-12 py-8 flex items-center justify-between z-50 bg-transparent transition-all duration-500 transform translate-y-0">
+<!-- Left: Logo Mark -->
+<div class="flex items-center gap-2 group cursor-pointer">
+<a href="index.html">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:rotate-180 transition-transform duration-700">spa</span>
+</a>
+</div>
+<!-- Center: Links (Desktop) -->
+<div class="hidden md:flex items-center gap-12">
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="index.html">dharma</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="details.html">journeys</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="magazine.html">journal</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="contacts.html">contacts</a>
+</div>
+<!-- Right: Action -->
+<div class="flex items-center gap-6">
+<button id="burger-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</div>
+</nav>
+
+<!-- Canvas Menu -->
+<div id="canvas-menu" class="fixed inset-0 z-[100] hidden">
+<!-- Overlay -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="menu-overlay"></div>
+<!-- Menu Panel -->
+<div class="absolute right-0 top-0 h-full w-80 bg-[#f2f2ef] dark:bg-[#1c1c1e] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out" id="menu-panel">
+<div class="h-full flex flex-col p-8">
+<!-- Header -->
+<div class="flex items-center justify-between mb-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">spa</span>
+<span class="font-bold text-xl tracking-wider">DHARMA</span>
+</div>
+<button id="close-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-6">
+<a href="index.html" class="group flex items-center justify-between py-2 border-b border-stone-200 dark:border-stone-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">home</span>
+<span class="text-base tracking-widest uppercase">Home</span>
+</div>
+</a>
+<a href="details.html" class="group flex items-center justify-between py-2 border-b border-stone-200 dark:border-stone-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">explore</span>
+<span class="text-base tracking-widest uppercase">Journeys</span>
+</div>
+</a>
+<a href="magazine.html" class="group flex items-center justify-between py-2 border-b border-stone-200 dark:border-stone-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">auto_stories</span>
+<span class="text-base tracking-widest uppercase">Journal</span>
+</div>
+</a>
+<a href="contacts.html" class="group flex items-center justify-between py-2 border-b border-stone-200 dark:border-stone-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-base tracking-widest uppercase">Contatti</span>
+</div>
+</a>
+</nav>
+<!-- Footer -->
+<div class="mt-auto pt-8 border-t border-stone-200 dark:border-stone-800">
+<p class="text-xs text-stone-500 italic">Viaggio consapevole per l'anima</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<header class="relative w-full min-h-[85vh] flex flex-col md:flex-row px-6 md:px-12 pb-12 gap-8 md:gap-16">
+<!-- Vertical Brand Name (Left Sidebar Effect) -->
+<div class="hidden md:flex w-[60px] flex-col justify-center items-center py-10 relative">
+<div class="h-full w-[1px] bg-stone-300 dark:bg-stone-700 absolute left-1/2 top-0 -translate-x-1/2"></div>
+<h1 class="vertical-text text-6xl lg:text-8xl font-thin tracking-[0.15em] text-primary/90 bg-background-light dark:bg-background-dark py-10 z-10">
+                    DHARMA
+                </h1>
+</div>
+<!-- Mobile Brand Name -->
+<div class="md:hidden pt-4 pb-8">
+<h1 class="text-5xl font-thin tracking-[0.15em] text-primary/90 text-center">DHARMA</h1>
+</div>
+<!-- Hero Image & Intro -->
+<div class="flex-1 relative rounded-2xl overflow-hidden group">
+<!-- Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] ease-in-out group-hover:scale-105" data-alt="Serene mountain landscape at sunrise" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80');"></div>
+<!-- Overlay Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<!-- Content -->
+<div class="absolute bottom-0 left-0 p-8 md:p-16 max-w-2xl text-white">
+<div class="flex items-center gap-4 mb-6">
+<span class="block w-12 h-[1px] bg-white/70"></span>
+<span class="text-xs uppercase tracking-[0.2em] text-white/90">Trova il tuo centro</span>
+</div>
+<h2 class="text-3xl md:text-5xl font-medium leading-tight mb-8 drop-shadow-sm">
+                        Un viaggio interiore attraverso i luoghi più sacri del mondo.
+                    </h2>
+<button class="flex items-center gap-3 text-sm font-bold tracking-widest uppercase hover:gap-5 transition-all duration-300 group/btn">
+<span>Inizia il Cammino</span>
+<span class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="w-full flex flex-col gap-32 py-24 px-6 md:px-12 max-w-[1600px] mx-auto">
+<!-- Section 1: The Art of Slow Travel (Text Left, Image Right) -->
+<section class="flex flex-col md:flex-row items-center gap-12 md:gap-24 animate-fade-in">
+<!-- Text Side -->
+<div class="flex-1 flex flex-col gap-8 md:pr-10">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary text-xl mb-2">trip_origin</span>
+<h2 class="text-4xl md:text-5xl font-light text-[#151217] dark:text-white leading-tight">
+                            L'Arte del <br/><span class="italic font-normal text-primary">Viaggio Lento</span>
+</h2>
+</div>
+<p class="text-lg md:text-xl text-stone-600 dark:text-stone-300 leading-loose font-light">
+                        Crediamo che viaggiare non significhi conquistare destinazioni, ma abbandonarsi al momento. Le nostre esperienze curano la profondità sopra la superficialità, il silenzio sopra il rumore.
+                    </p>
+<div class="flex flex-col gap-4 mt-4">
+<div class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="text-sm tracking-widest uppercase text-stone-500">Esplorazione Consapevole</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="text-sm tracking-widest uppercase text-stone-500">Ritiri nel Silenzio</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="text-sm tracking-widest uppercase text-stone-500">Architettura Sacra</span>
+</div>
+</div>
+</div>
+<!-- Image Side -->
+<div class="flex-1 w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Close up of raked sand in a traditional Japanese Zen garden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBXSQce1FGjbBkVx9OY6f6B9Ey-0cJmaSJdV2kB3k-hPE7oll5-AE6MuN4RO9lb9nNyHLKNQhMTBAeI2eInst1D45FPKRoasgycMwUzhrkdtLmZB5h3V7zXYkRNb8acJQXZUTh9tagROopdvJQIzRY8OyI1QwwtjIL_r46trN23Ox58SBAM0T-JI_XnvvhBZmSprPxuauwxJfx5Shmvkb9sa6L2_6KhgWy8xjnFDG5YTQbSYfIbkelHGaphGtnHY-v7XLcPYG7pgo');"></div>
+</div>
+</section>
+<!-- Section 2: Kyoto Temples (Image Left, Text Right) -->
+<section class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-24">
+<!-- Image Side -->
+<div class="flex-1 w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Wooden walkway in a serene Japanese temple garden with moss" data-location="Kyoto, Japan" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnJBSCOBYlF-_ZdfPOfctN2Kl6umed1KFQLGIGD4MIV5N5DKJyZ2LIKtu_1tPnh-tvopcFxtc3h6mVlBTlKdmaToCJ-a5DOpA26NoHSRY5jhvlZj_hWhRDfUUWjKJAE9L2RYT_b-E-Een5LrLbXoV-vocVRjCTcXC7izHNQrCc3RC-q4QuMrcBco8An0MBUa4zCVkWTqpzsIV6Us_eBBdZKLzmXTaCOzxyIFCbAtoZyk0T-EjUd3Cbpxt_-e_4Vg4U8yAak3onY88');"></div>
+<!-- Location Tag -->
+<div class="absolute top-6 left-6 bg-white/90 dark:bg-black/80 px-4 py-2 rounded-full backdrop-blur-sm">
+<span class="text-xs font-bold tracking-widest uppercase">Kyoto, Giappone</span>
+</div>
+</div>
+<!-- Text Side -->
+<div class="flex-1 flex flex-col gap-8 md:pl-10 text-right md:items-end">
+<div class="flex flex-col gap-2 items-end">
+<span class="w-12 h-[1px] bg-primary mb-4"></span>
+<h2 class="text-4xl md:text-5xl font-light text-[#151217] dark:text-white leading-tight">
+                            Templi di <br/>Kyoto
+                        </h2>
+</div>
+<p class="text-lg md:text-xl text-stone-600 dark:text-stone-300 leading-loose font-light">
+                        Cammina sui sentieri ricoperti di muschio di Giou-ji. Medita nei giardini di pietra di Ryoan-ji. Prova il silenzio profondo dell'antica capitale del Giappone prima che la città si svegli.
+                    </p>
+<button class="mt-4 px-8 py-3 border border-stone-300 dark:border-stone-700 rounded-lg hover:border-primary hover:text-primary transition-colors text-sm uppercase tracking-widest w-fit">
+                        Vedi l'Itinerario
+                    </button>
+</div>
+</section>
+<!-- Philosophy Break -->
+<section class="py-20 flex justify-center">
+<div class="max-w-3xl text-center flex flex-col items-center gap-8">
+<span class="material-symbols-outlined text-4xl text-primary/50">self_improvement</span>
+<p class="text-2xl md:text-4xl font-serif italic text-stone-500 dark:text-stone-400 leading-relaxed">
+                        "Lo scopo della vita è far battere il tuo cuore in sintonia con il ritmo dell'universo."
+                    </p>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+</section>
+<!-- Section 3: Himalayan Silence (Text Left, Image Right) -->
+<section class="flex flex-col md:flex-row items-center gap-12 md:gap-24">
+<!-- Text Side -->
+<div class="flex-1 flex flex-col gap-8 md:pr-10">
+<div class="flex flex-col gap-2">
+<span class="w-12 h-[1px] bg-primary mb-4"></span>
+<h2 class="text-4xl md:text-5xl font-light text-[#151217] dark:text-white leading-tight">
+                            Silenzio <br/>Himalayano
+                        </h2>
+</div>
+<p class="text-lg md:text-xl text-stone-600 dark:text-stone-300 leading-loose font-light">
+                        Sali sul tetto del mondo. Trova chiarezza nell'aria rarefatta e nelle vette maestose dell'Himalaya, guidato da Sherpa locali e maestri spirituali che chiamano queste montagne casa.
+                    </p>
+<button class="mt-4 px-8 py-3 border border-stone-300 dark:border-stone-700 rounded-lg hover:border-primary hover:text-primary transition-colors text-sm uppercase tracking-widest w-fit">
+                        Vedi l'Itinerario
+                    </button>
+</div>
+<!-- Image Side -->
+<div class="flex-1 w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Snow capped majestic Himalayan mountain peaks under a clear sky" data-location="Nepal" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-paeWQ53Z6iwVEFx2bfyby5w-FS_vn8JGGknYHDN-faLaFwVrvoa5SSPrRhSuyLUzDaDnJ1Tlxt0Lt4dZdZVrhqRKdudfqoUdgjZrtpAgWl_IhI6rxIgwPDvZkuxB5zYXJkIWgcrrArmHpr_Qvdh0E_XZnkWYqtt6UYcWvBv2y2NC90rbZQ89Qyt5Xl51itKmujO6DMTcCJ3R5gy-n1kUWuvjdr-wG0m_Yvyd5dozoHtXhyzX1GE0VeoHzA5duFxglrksnKLoEGc');"></div>
+<!-- Location Tag -->
+<div class="absolute top-6 right-6 bg-white/90 dark:bg-black/80 px-4 py-2 rounded-full backdrop-blur-sm">
+<span class="text-xs font-bold tracking-widest uppercase">Nepal</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/20 mt-auto">
+<div class="max-w-[1600px] mx-auto px-6 md:px-12 py-20">
+<div class="flex flex-col md:flex-row justify-between gap-16">
+<!-- Brand -->
+<div class="flex flex-col gap-6 md:w-1/4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">spa</span>
+<span class="font-bold text-xl tracking-wider">DHARMA</span>
+</div>
+<p class="text-stone-500 text-sm leading-relaxed">
+                            Viaggio consapevole per chi cerca il senso.<br/>Riconnettiti con te stesso e con il mondo.
+                        </p>
+<div class="flex gap-4 mt-2">
+<!-- Social Placeholders -->
+<div class="w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer">
+<span class="text-xs">IG</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer">
+<span class="text-xs">TW</span>
+</div>
+</div>
+</div>
+<!-- Columns -->
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-12">
+<!-- Col 1 -->
+<div class="flex flex-col gap-6">
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">Viaggio</h4>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Destinazioni</a>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Ritiri</a>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Esperienze</a>
+</div>
+<!-- Col 2 -->
+<div class="flex flex-col gap-6">
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">Significato</h4>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Filosofia</a>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">La Nostra Storia</a>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Impatto</a>
+</div>
+<!-- Col 3 -->
+<div class="flex flex-col gap-6">
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">Contatto</h4>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Journal</a>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Newsletter</a>
+<a class="text-stone-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">Contatti</a>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col md:flex-row justify-between items-center text-xs text-stone-400 gap-4">
+<p>© 2024 Dharma. Tutti i diritti riservati.</p>
+<div class="flex gap-8">
+<a class="hover:text-stone-600 dark:hover:text-stone-200" href="#">Privacy Policy</a>
+<a class="hover:text-stone-600 dark:hover:text-stone-200" href="#">Termini di Servizio</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+<!-- JavaScript for Menu -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerMenu = document.getElementById('burger-menu');
+    const closeMenu = document.getElementById('close-menu');
+    const canvasMenu = document.getElementById('canvas-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuPanel = document.getElementById('menu-panel');
+    
+    function openMenu() {
+        canvasMenu.classList.remove('hidden');
+        setTimeout(function() {
+            menuPanel.classList.remove('translate-x-full');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenuFunc() {
+        menuPanel.classList.add('translate-x-full');
+        setTimeout(function() {
+            canvasMenu.classList.add('hidden');
+        }, 500);
+        document.body.style.overflow = '';
+    }
+    
+    if (burgerMenu) burgerMenu.addEventListener('click', openMenu);
+    if (closeMenu) closeMenu.addEventListener('click', closeMenuFunc);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenuFunc);
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !canvasMenu.classList.contains('hidden')) {
+            closeMenuFunc();
+        }
+    });
+});
+</script>
+
+<!-- JavaScript for Header Scroll Effect -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const nav = document.getElementById('main-nav');
+    const body = document.body;
+    let ticking = false;
+    let wasFixed = false;
+    
+    // Add padding-top to body equal to nav height when fixed
+    const navHeight = nav.offsetHeight;
+    
+    function updateNav() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 150) {
+            if (!wasFixed) {
+                // Add padding to prevent jump
+                body.style.paddingTop = navHeight + 'px';
+                nav.classList.remove('bg-transparent', 'py-8');
+                nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                wasFixed = true;
+            }
+        } else {
+            if (wasFixed) {
+                // Remove padding
+                body.style.paddingTop = '0';
+                nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                nav.classList.add('bg-transparent', 'py-8');
+                wasFixed = false;
+            }
+        }
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateNav);
+            ticking = true;
+        }
+    });
+    
+    updateNav();
+});
+</script>
+</body></html>

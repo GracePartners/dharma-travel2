@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dharma - Il Journal Spirituale</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6e2a92",
+                        "background-light": "#fdfcfd",
+                        "background-dark": "#1b131f",
+                        "text-main": "#151217",
+                        "text-muted": "#796882",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Masonry via CSS Columns */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-display antialiased transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<nav id="main-nav" class="w-full px-6 md:px-12 py-8 flex items-center justify-between z-50 bg-transparent transition-all duration-500 transform translate-y-0">
+<!-- Left: Logo Mark -->
+<div class="flex items-center gap-2 group cursor-pointer">
+<a href="index.html">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:rotate-180 transition-transform duration-700">spa</span>
+</a>
+</div>
+<!-- Center: Links (Desktop) -->
+<div class="hidden md:flex items-center gap-12">
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="index.html">dharma</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="details.html">journeys</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="magazine.html">journal</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="contacts.html">contacts</a>
+</div>
+<!-- Right: Action -->
+<div class="flex items-center gap-6">
+<button id="burger-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</div>
+</nav>
+
+<!-- Canvas Menu -->
+<div id="canvas-menu" class="fixed inset-0 z-[100] hidden">
+<!-- Overlay -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="menu-overlay"></div>
+<!-- Menu Panel -->
+<div class="absolute right-0 top-0 h-full w-80 bg-[#fdfcfd] dark:bg-[#1b131f] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out" id="menu-panel">
+<div class="h-full flex flex-col p-8">
+<!-- Header -->
+<div class="flex items-center justify-between mb-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">spa</span>
+<span class="font-bold text-xl tracking-wider">DHARMA</span>
+</div>
+<button id="close-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-6">
+<a href="index.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">home</span>
+<span class="text-base tracking-widest uppercase">Home</span>
+</div>
+</a>
+<a href="details.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">explore</span>
+<span class="text-base tracking-widest uppercase">Journeys</span>
+</div>
+</a>
+<a href="magazine.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">auto_stories</span>
+<span class="text-base tracking-widest uppercase">Journal</span>
+</div>
+</a>
+<a href="contacts.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-base tracking-widest uppercase">Contatti</span>
+</div>
+</a>
+</nav>
+<!-- Footer -->
+<div class="mt-auto pt-8 border-t border-gray-200 dark:border-gray-800">
+<p class="text-xs text-gray-500 italic">Riflessioni per il viaggio interiore</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Main Content Layout -->
+<main class="flex-1 w-full max-w-[1200px] mx-auto px-6 py-8 flex flex-col gap-16">
+<!-- Hero Section -->
+<section class="w-full relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[21/9] group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Monk walking in a misty ancient temple hallway" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnZ2qXG7_1N_de6d3t-JgTR9zTIMGfOxZDomaUR0utuLK7_m5RzB8e1tJnFZbsNP8kXHH9q6WLekPqFDvW2ml7jQwBfA1MGyGOnIH2GU8I42-Trr6jDBoTkJoc9s01yscuV1kA7N-mbGd5BVt4LBUpcBAGDLPO9UwldhDcW5jLuFlEtFoQ0-jhKbXYyN97yvjlCzc_tVnBeXHTCVkc5aAST4BAWMHVp8YYPjFyinr3FioHZIXBB_ehT4LK8v7yu-2xDBsXJN6hIjk");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 md:p-16 max-w-3xl flex flex-col gap-4">
+<span class="text-white/90 text-sm font-medium tracking-widest uppercase">In Evidenza • 5 min di lettura</span>
+<h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+                        L'Arte della Quiete: Perché Viaggiamo per Trovare Noi Stessi
+                    </h1>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-white/80 text-sm font-medium">Leggi l'Articolo</span>
+<span class="material-symbols-outlined text-white text-sm">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Categories / Chips -->
+<section class="flex flex-wrap justify-center gap-3 md:gap-4">
+<button class="px-5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-transparent hover:bg-primary hover:text-white hover:border-primary text-sm font-medium text-text-main dark:text-gray-300 transition-all">Tutti</button>
+<button class="px-5 py-2 rounded-full border border-transparent bg-primary/10 text-primary text-sm font-medium hover:bg-primary hover:text-white transition-all">Meditazione</button>
+<button class="px-5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-transparent hover:bg-primary hover:text-white hover:border-primary text-sm font-medium text-text-main dark:text-gray-300 transition-all">Consapevolezza</button>
+<button class="px-5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-transparent hover:bg-primary hover:text-white hover:border-primary text-sm font-medium text-text-main dark:text-gray-300 transition-all">Rituali</button>
+<button class="px-5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-transparent hover:bg-primary hover:text-white hover:border-primary text-sm font-medium text-text-main dark:text-gray-300 transition-all">Natura</button>
+<button class="px-5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-transparent hover:bg-primary hover:text-white hover:border-primary text-sm font-medium text-text-main dark:text-gray-300 transition-all">Nutrizione</button>
+</section>
+<!-- Masonry Grid -->
+<section class="masonry-grid w-full">
+<!-- Article 1 -->
+<article class="masonry-item group cursor-pointer">
+<div class="relative w-full overflow-hidden rounded-lg mb-4">
+<div class="aspect-[3/4] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Hands pouring tea in a traditional ceremony" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXMGqqldD7Isuqai2hwGO--vpmMSaiR3Ry6_LGtswG1lrwZVuX75AIaEOS6y7quPxOJSJGemjnFOrwA4J8vI9soQNYsHX8qkCzJTSZzhdTf1XJj7peVryFtu4ICiiDDY-nvd7BqG7lzKoeRFdZHjgBHKXTVqMaXqCbRCtGC9FhgTxWHMIp7zgJL03DlB679kAdNf2Em_wKjzeE52x93wjfAjGcZ2i_wWuXuJN-7EQ5LMloFJxcAji5kIB7jTly1JKc1ZyQH_HwW3o");'>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Rituali</span>
+<h3 class="text-2xl font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">
+                            La Cerimonia del Tè Spiegata
+                        </h3>
+<p class="text-text-muted text-sm font-medium">12 Ott • 4 min di lettura</p>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="masonry-item group cursor-pointer">
+<div class="relative w-full overflow-hidden rounded-lg mb-4">
+<div class="aspect-[4/5] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Misty mountain landscape in the Himalayas" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAe7vr25OOZiT2uwxt1MtWhqKchF8Gl0Gv1kXEZP4CeYjTuiqxk2XDcsbDKg0zYR2-4MdDH7-6485nYSgFORiLSLImf2b0MloMXWarKe-uGG7pBKNXlEzyT9_RbOR_pLsuz0J0822UKUq5U9bsosTmJmrcRUs9r2-xFPi_UkVLTODWjNyLrM5tdakIry2LUrat9ps7S7rDTUuT1tqSFtYn_XWGLknCJkY6UFVHJER9LLRkzU7TteBMYHhRKvkjLPN4TGq67wBBVe2o");'>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Natura</span>
+<h3 class="text-2xl font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">
+                            Silenzio nell'Himalaya
+                        </h3>
+<p class="text-text-muted text-sm font-medium">8 Ott • 7 min di lettura</p>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="masonry-item group cursor-pointer">
+<div class="relative w-full overflow-hidden rounded-lg mb-4">
+<div class="aspect-[3/4] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist bedroom with morning light" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBoDVwHlzkkHBHd-VBgd9S9wdH-JBNFoFGhI3-p8JSK25ylXjBQtTKpw6N65BgwhmS5j4mOAGZjgyrpfGEXc8U-TpnV-rezlhbE6Uxi5sKP9XguQ0FgzAxonjfSGmgXcvgrpF4z0OAdqSaDs1sT_yd0Cbghx2hqs8oOzgAB80ZFp8m8GjEzQ9ez9GvnHFplj_dunxjLMz3s9OqDj13Lnizxgd8YNjAzvomwRCP1M0NtCNtzLVWFG3SK7t9TB9gmUazmB45dHzqi7R8");'>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Consapevolezza</span>
+<h3 class="text-2xl font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">
+                            Routine Mattutine per il Viaggiatore
+                        </h3>
+<p class="text-text-muted text-sm font-medium">29 Set • 3 min di lettura</p>
+</div>
+</article>
+<!-- Article 4 -->
+<article class="masonry-item group cursor-pointer">
+<div class="relative w-full overflow-hidden rounded-lg mb-4">
+<div class="aspect-[3/3.5] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Zen rock garden detail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDfAoGfSzaf_VVML1jiaXxOn4VHJXgjQf1aPFRPmJU262htpRkpIvnQEldxxtCA51NaPHOxyl98sVk6nCpcJEtqLWT52hxllo9INpKYATgFhYB6qu51y9e_lHDy8KvBt4J6eer1ZCQz6xLDlXoMivt44IciobHM8yrPnpWfoSu8KS4g9UlHxA6_jNFZs76L3x2lOlzKxMidRHyR7BGah33YCdz4qNgFMzxv2hVJh-zQqdHmUQNchSQDsL6Z4QYr0kDdvKl-YP1gu3A");'>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Meditazione</span>
+<h3 class="text-2xl font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">
+                            Trovare lo Zen nel Caos
+                        </h3>
+<p class="text-text-muted text-sm font-medium">24 Set • 5 min di lettura</p>
+</div>
+</article>
+<!-- Article 5 -->
+<article class="masonry-item group cursor-pointer">
+<div class="relative w-full overflow-hidden rounded-lg mb-4">
+<div class="aspect-[3/4] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Neatly packed travel suitcase minimalist style" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXerOBrTib4sMQ6m_gCSgTeGcoURPkhVa52JLHqnkDaJQjR0SCAY-binlBKyQ1ucLlU7nMPsND1Dy-tlv8DAOEnt8pLgQ_OGnmEzWD5FRMvqGHVOdZwhwxq6BK7yp1EJF_AajdWQsX5qPZ6UL0wWqHzK2O46g6AKPHMhwNiOEituQw7zbZ1JrKmJLg49abaibyO9m9xzOgXRUOkvz3439pIP0sIsaCqXWmg36OUtx4EA5DB7lyn9DhvhWL-ilinCkCBshy65_0f4o");'>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Nutrizione</span>
+<h3 class="text-2xl font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">
+                            Guida al Bagaglio Essenziale
+                        </h3>
+<p class="text-text-muted text-sm font-medium">15 Set • 6 min di lettura</p>
+</div>
+</article>
+<!-- Article 6 -->
+<article class="masonry-item group cursor-pointer">
+<div class="relative w-full overflow-hidden rounded-lg mb-4">
+<div class="aspect-[4/6] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Person meditating near a window" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRSpndiGtOoCfIhpvMBUPmq9l1FPmgO7YJ7VmKg9XzkrJbUzscKJGzUFV5FKPoxMfzagNOR1WvNaokhwP_k7KGuVixhlPH_XhC08_ymoH7Qi9WDxwsWkuOkjVfobihg2sj3sRXCoBtK73NVwpR0PIfpGwfE3WPzu22oscnQERt_jnhzz-ajncozIgVc4snl_D_2VYivF9TnPlKTeS4DkIitdzVOJUGyYYlMyMw4XlAYUPr6srwMlc0cm3ySTHXyan1n2OvN0W2AgA");'>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Ritiri</span>
+<h3 class="text-2xl font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">
+                            Essenziali per il Soggiorno in Tempio
+                        </h3>
+<p class="text-text-muted text-sm font-medium">2 Set • 8 min di lettura</p>
+</div>
+</article>
+<!-- Article 7 -->
+<article class="masonry-item group cursor-pointer">
+<div class="relative w-full overflow-hidden rounded-lg mb-4">
+<div class="aspect-[4/3] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Healthy organic bowl of food" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkkgdgfd3b7kn_L4OLQde9qhKF4Wsvl_ZoJgBSVsai2cSSaip3mD4iex_k2Y08aV2yaQDqCK1w1w2qbHLfXtQV7f7Ho7Er-AmvH--f4mvZD8H0LFQ0nKhsyfsle3s5r_7XC9NF8ljxlV132GYcdabXzL3uiHATu13iJE-6Lhh2wxJttvEWxDG5asUMsU8WNKJX3hFbbq0Alvqi0IBl2yDfeMo2BGH4ZFHepW3jvqGS-pifN-QgD-M07NZ-_4g2lc5d_fT3Y1NKQMU");'>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Nutrizione</span>
+<h3 class="text-2xl font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">
+                            Mangiare per lo Spirito
+                        </h3>
+<p class="text-text-muted text-sm font-medium">28 Ago • 4 min di lettura</p>
+</div>
+</article>
+</section>
+<!-- Load More -->
+<div class="flex justify-center pt-8 pb-16">
+<a class="text-text-main dark:text-white font-medium border-b-2 border-primary pb-1 hover:text-primary transition-colors" href="#">
+                    Carica altre storie
+                </a>
+</div>
+</main>
+<!-- CTA / Footer Area -->
+<footer class="bg-background-light dark:bg-background-dark border-t border-gray-100 dark:border-gray-800">
+<div class="max-w-[960px] mx-auto px-6 py-20 flex flex-col items-center text-center">
+<div class="mb-8">
+<div class="size-10 text-primary mx-auto mb-4">
+<span class="material-symbols-outlined text-[40px]">spa</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-black text-text-main dark:text-white mb-4">Unisciti al Cerchio Interiore</h2>
+<p class="text-text-muted text-lg max-w-lg mx-auto">Ricevi settimanalmente riflessioni su viaggio consapevole, silenzio e vivere con intenzione.</p>
+</div>
+<form class="w-full max-w-md flex flex-col sm:flex-row gap-3">
+<input class="flex-1 bg-gray-50 dark:bg-gray-800 border-none rounded-xl px-5 py-3 text-text-main dark:text-white focus:ring-2 focus:ring-primary/20 placeholder:text-text-muted" placeholder="La tua email" type="email"/>
+<button class="bg-primary text-white font-bold px-8 py-3 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20" type="button">
+                        Iscriviti
+                    </button>
+</form>
+<div class="mt-16 flex flex-col sm:flex-row items-center gap-8 text-sm text-text-muted font-sans">
+<span>© 2024 Dharma. Tutti i diritti riservati.</span>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="hover:text-primary transition-colors" href="#">Pinterest</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+<!-- JavaScript for Menu -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerMenu = document.getElementById('burger-menu');
+    const closeMenu = document.getElementById('close-menu');
+    const canvasMenu = document.getElementById('canvas-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuPanel = document.getElementById('menu-panel');
+    
+    function openMenu() {
+        canvasMenu.classList.remove('hidden');
+        setTimeout(function() {
+            menuPanel.classList.remove('translate-x-full');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenuFunc() {
+        menuPanel.classList.add('translate-x-full');
+        setTimeout(function() {
+            canvasMenu.classList.add('hidden');
+        }, 500);
+        document.body.style.overflow = '';
+    }
+    
+    if (burgerMenu) burgerMenu.addEventListener('click', openMenu);
+    if (closeMenu) closeMenu.addEventListener('click', closeMenuFunc);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenuFunc);
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !canvasMenu.classList.contains('hidden')) {
+            closeMenuFunc();
+        }
+    });
+});
+</script>
+
+<!-- JavaScript for Header Scroll Effect -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const nav = document.getElementById('main-nav');
+    const body = document.body;
+    let ticking = false;
+    let wasFixed = false;
+    
+    const navHeight = nav.offsetHeight;
+    
+    function updateNav() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 150) {
+            if (!wasFixed) {
+                body.style.paddingTop = navHeight + 'px';
+                nav.classList.remove('bg-transparent', 'py-8');
+                nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                wasFixed = true;
+            }
+        } else {
+            if (wasFixed) {
+                body.style.paddingTop = '0';
+                nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                nav.classList.add('bg-transparent', 'py-8');
+                wasFixed = false;
+            }
+        }
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateNav);
+            ticking = true;
+        }
+    });
+    
+    updateNav();
+});
+</script>
+</body></html>
